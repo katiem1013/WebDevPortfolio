@@ -4,28 +4,28 @@
         <meta charset="UTF-8">
         <title>Login!</title>
         
-        <link href="../css/loginStyle.css" rel="stylesheet">
+        <link href="./css/loginStyle.css" rel="stylesheet">
 
     </head>
 
     <body>
         <div class="titlebar"></div>
         
-        <header style="font-size: 50px;">
-            &lt; Welcome! &gt;
-        </header>
+        <header style="font-size: 50px;">&lt; Welcome! &gt; </header>
 
         <div class="container">
             <div class="date-time-boarders">
+                <div class="date-time" id="currentTime"> 00:00 <span class="smaller-text">00</span> </div>
+                <div class="date-time" id="currentDate"> DD MM YYYY </div>
 
             </div>
         </div>
 
         <div class="login">
-            <button>Login!</button>
+            <button onclick="window.location='../html/mainMenu.html'" id="login-bttn">Welcome!</button>
         </div>
 
-        <script src = "../javascript/loginScript.js"></script>
+        <script src = "./javascript/loginScript.js"></script>
         
     </body>
 <html>

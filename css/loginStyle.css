@@ -1,3 +1,9 @@
+/* Fonts */
+@font-face {
+    font-family: clockFont;
+    src: url("../assets/universal/Digital\ Play\ St.ttf");
+}
+
 /* Layout code - used to make the pages match*/
 @font-face {
     font-family: mainFont;
@@ -55,6 +61,28 @@ header{
     box-shadow: 7px 7px 0px 0px #CC9922;
     position: relative;
 
+    
+    padding: 25px;
+
+    height: 200px;
+    width: 350px;
+}
+
+.date-time{
+    text-align: center;
+    font-size: 70px;
+
+    font-family: clockFont;
+    margin-bottom: -50px;
+}
+
+.smaller-text{
+    font-size: 0.7em; 
+}
+
+.date-text{
+    font-family: mainFont;
+    font-size: 0.5em; 
 }
 
 button{
@@ -62,17 +90,19 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     font-family: mainFont;
     font-size: large;
 
+    top: 100px;
     margin: auto;
+
     background-color: #B1B78B;
     padding: 8px;
     border:3px #58733C solid;
     border-radius: 10px;
     box-shadow: 7px 7px 0px 0px #CC9922;
-    position: relative;
 
     cursor: pointer;
 }
