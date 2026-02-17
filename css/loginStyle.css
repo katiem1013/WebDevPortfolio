@@ -1,0 +1,78 @@
+/* Layout code - used to make the pages match*/
+@font-face {
+    font-family: mainFont;
+    src: url("../assets/universal/Keep\ Cheese.ttf");
+}
+
+.titlebar {
+    height: 40px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #7C9464;
+
+    font-size: 25px;
+}
+
+body{
+    background-image: url("../assets/universal/Background\ 2.PNG");
+    background-repeat:repeat;
+    background-size: 1000px;
+
+    font-family: mainFont;
+    color: rgb(38, 38, 38);  
+    
+    outline: 10px solid #7C9464; 
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+
+header{
+    text-align: center;
+    padding: 50px;
+}
+
+/* page specific code */
+
+.container{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.date-time-boarders{
+    display: inline-block;
+    margin: auto;
+    background-color: #B1B78B;
+    padding: 8px;
+    border:3px #58733C solid;
+    border-radius: 10px;
+    box-shadow: 7px 7px 0px 0px #CC9922;
+    position: relative;
+
+}
+
+button{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: mainFont;
+    font-size: large;
+
+    margin: auto;
+    background-color: #B1B78B;
+    padding: 8px;
+    border:3px #58733C solid;
+    border-radius: 10px;
+    box-shadow: 7px 7px 0px 0px #CC9922;
+    position: relative;
+
+    cursor: pointer;
+}
