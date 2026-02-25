@@ -28,84 +28,135 @@
                 <button type="openFile" class="app-bttn" onclick="openEducation()"></button>
                 <figcaption>Education!</figcaption>
             </div>
+
+            <div class="img-with-text">
+                <button type="openFile" class="app-bttn" onclick="openSkills()"></button>
+                <figcaption>Skills!</figcaption>
+            </div>
         </div>
 
         <div id="drag">
             <div class="popup" id="about">
                 <div class="drag" id="dragheader">About Me!</div>
-                <h2>Hello! I'm Katie!</h2>
-                <p>I am a Programmer that recently graduated in Games Design course at Brunel University. I love creating games, along with other hobbies such as sewing, drawing, and baking. 
-                Some of my favourite games are: Minecraft, Overwatch 2, Cities: Skyline, A Way Out, The Last of Us, The Forest and Left 4 Dead 2.</p>
+                <div class="popup-contents">
+                    <h2>Hello! I'm Katie!</h2>
+                    <p>I am a Programmer that recently graduated in Games Design course at Brunel University. I love creating games, along with other hobbies such as sewing, drawing, and baking. 
+                    Some of my favourite games are: Minecraft, Overwatch 2, Cities: Skyline, A Way Out, The Last of Us, The Forest and Left 4 Dead 2.</p>
 
-                <button type="button" onclick="closeAbout()">Done!</button>
+                    <button type="button" onclick="closeAbout()">Done!</button>
+                </div>
             </div>
 
             <div class="popup" id="experience">
                 <div class="drag" id="dragheader">CV!</div>
-                <h2>Experience:</h2>
-                <h3>Shift Manager, Greggs: 18th April 2025 - Current</h3>
-                <ul>
-                    <li>Supervised a team during shifts when the manager is absent, managing breaks, conflicts
-                    and ensuring a positive customer experience.</li>
-                    <li>Helped keep the shop tidy, organised and well stocked. Preparing products and managing
-                    the ovens.</li>
-                    <li>Provided inventory counts, temperature checks and handled the cash by counting the
-                    safe and taking tills off.</li>
-                </ul>
+                <div class="popup-contents">
+                    <h2>Experience:</h2>
+                    <h3>Shift Manager, Greggs: 18th April 2025 - Current</h3>
+                    <ul>
+                        <li>Supervised a team during shifts when the manager is absent, managing breaks, conflicts
+                        and ensuring a positive customer experience.</li>
+                        <li>Helped keep the shop tidy, organised and well stocked. Preparing products and managing
+                        the ovens.</li>
+                        <li>Provided inventory counts, temperature checks and handled the cash by counting the
+                        safe and taking tills off.</li>
+                    </ul>
 
-                <h3>Retail Assistant, Greggs: 22nd July 2024 - 18th April 2025</h3>
-                <ul>
-                    <li>Work in a small team to provide products to customers.</li>
-                    <li>Interact with customers and serve them a variety of food and drinks in a fast paced
-                    environment.</li>
-                    <li>Addressed customers' inquiries and concerns and work to provide a good experience
-                    with every visit.</li>
-                </ul>
+                    <h3>Retail Assistant, Greggs: 22nd July 2024 - 18th April 2025</h3>
+                    <ul>
+                        <li>Work in a small team to provide products to customers.</li>
+                        <li>Interact with customers and serve them a variety of food and drinks in a fast paced
+                        environment.</li>
+                        <li>Addressed customers' inquiries and concerns and work to provide a good experience
+                        with every visit.</li>
+                    </ul>
 
-                <h3>Producer Internship, Octopus 8 Studios: 15th May 2023 - 15th July 2023</h3>
-                <ul>
-                    <li>Managed a small team to create a video game, kept the team on schedule and assigned
-                    each member of the team tasks.</li>
-                    <li>Helped program interactions for items, puzzles, and dialog into the game.</li>
-                    <li>Worked with the team to design characters, puzzles, and the environment to create an
-                    enjoyable final product.</li>
-                </ul>
+                    <h3>Producer Internship, Octopus 8 Studios: 15th May 2023 - 15th July 2023</h3>
+                    <ul>
+                        <li>Managed a small team to create a video game, kept the team on schedule and assigned
+                        each member of the team tasks.</li>
+                        <li>Helped program interactions for items, puzzles, and dialog into the game.</li>
+                        <li>Worked with the team to design characters, puzzles, and the environment to create an
+                        enjoyable final product.</li>
+                    </ul>
 
-                <button type="button" onclick="closeExperience()">Done!</button>
+                    <button type="button" onclick="closeExperience()">Done!</button>
+                </div>
             </div>
 
             <div class="popup" id="education">
                 <div class="drag" id="dragheader">CV!</div>
-                
-                <h2>Education:</h2>
-                <h3>BA Games Design, Brunel University, London: September 2021 - June 2024</h3>
-                <ul>
-                    <p>Three years of games design, with a focus on games programming. Course work
-                    included designing and programming video games. Using programs such as Unity,
-                    Unreal Engine, Python, Pygame and Clickteam Fusion. As well as programming
-                    games using the Tobii Eye Tracker, Nintendo Switch Joycons, and Ultra Leap
-                    Motion.</p>
-                    
-                    <p>Final Grades: First Class Honours</p>
-                    <p>Achievements: Awarded TIGA graduate of the Year in Computer Games
-                    Technology.</p>
-                </ul>
+                <div class="popup-contents">
+                    <h2>Education:</h2>
+                    <h3>BA Games Design, Brunel University, London: September 2021 - June 2024</h3>
+                    <ul>
+                        <p>Three years of games design, with a focus on games programming. Course work
+                        included designing and programming video games. Using programs such as Unity,
+                        Unreal Engine, Python, Pygame and Clickteam Fusion. As well as programming
+                        games using the Tobii Eye Tracker, Nintendo Switch Joycons, and Ultra Leap
+                        Motion.</p>
+                        
+                        <p>Final Grades: First Class Honours</p>
+                        <p>Achievements: Awarded TIGA graduate of the Year in Computer Games
+                        Technology.</p>
+                    </ul>
 
-                <h3>UAL Extended Diploma, Games Design, Tresham College: September 2019 - July 2021</h3>
-                <ul>
-                    <p> Two years of games design with course work that involve working individually and
-                    as part of a team to create video games, video game trailers and writing essays
-                    exploring the design choices of video games.</p>
-                    <p>Final Grades: DS*</p>
-                </ul>
-            
-                <h3>GCSE, The Ferrers School: September 2014 - July 2019</h3>
-                <ul>
-                    <p> GCSE in Maths (5), English Language (5), English Literature (5), Science
-                    (4/5), and Product Design B-Tech (D1).</p >
-                </ul>
+                    <h3>UAL Extended Diploma, Games Design, Tresham College: September 2019 - July 2021</h3>
+                    <ul>
+                        <p> Two years of games design with course work that involve working individually and
+                        as part of a team to create video games, video game trailers and writing essays
+                        exploring the design choices of video games.</p>
+                        <p>Final Grades: DS*</p>
+                    </ul>
                 
-                <button type="button" onclick="closeEducation()">Done!</button>
+                    <h3>GCSE, The Ferrers School: September 2014 - July 2019</h3>
+                    <ul>
+                        <p> GCSE in Maths (5), English Language (5), English Literature (5), Science
+                        (4/5), and Product Design B-Tech (D1).</p >
+                    </ul>
+                    
+                    <button type="button" onclick="closeEducation()">Done!</button>
+            
+                </div>
+            </div>
+
+            <div class="popup" id="skills">
+                <div class="drag" id="dragheader">Skills and Tools</div>
+                <div class="popup-contents">
+                    <h2>Skills</h2>
+                    <h3>Game Engines:</h3>
+                    <ul>
+                        <li>Unity</li>
+                        <li>Unreal Engine 4</li>
+                        <li>Pygame</li>
+                        <li>Clickteam Fusion</li>
+                    </ul>
+
+                    <h3>Programming Languages:</h3>
+                    <ul>
+                        <li>C#</li>
+                        <li>Python</li>
+                        <li>HTML</li>
+                        <li>Javascript</li>
+                    </ul>
+
+                    <h3>Production:</h3>
+                    <ul>
+                        <li>Scrum Development</li>
+                        <li>Jira</li>
+                        <li>Github</li>
+                        <li>Trello</li>
+                    </ul>
+
+                    <h3>Other Software:</h3>
+                    <ul>
+                        <li>Photoshop</li>
+                        <li>Premire Pro</li>
+                        <li>Aesprite</li>
+                    </ul>
+
+                    <button type="button" onclick="closeSkills()">Done!</button>
+            
+                </div>
             </div>
 
         </div>

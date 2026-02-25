@@ -2,35 +2,45 @@ const elements = {
     about: document.getElementById('about'),
     experience: document.getElementById('experience'),
     education: document.getElementById('education'),
+    skills: document.getElementById('skills'),
 };
 
 dragElement(document.getElementById("about"));
 dragElement(document.getElementById("experience"));
 dragElement(document.getElementById("education"));
+dragElement(document.getElementById("skills"));
 
 //popup controls 
 function openAbout(){
-    elements.about.classList.add("open-popup");
+  elements.about.classList.add("open-popup");
 }
 
 function closeAbout(){
-    elements.about.classList.remove("open-popup");
+  elements.about.classList.remove("open-popup");
 }
 
 function openExperience(){
-    elements.experience.classList.add("open-popup");
+  elements.experience.classList.add("open-popup");
 }
 
 function closeExperience(){
-    elements.experience.classList.remove("open-popup");
+  elements.experience.classList.remove("open-popup");
 }
 
 function openEducation(){
-    elements.education.classList.add("open-popup");
+  elements.education.classList.add("open-popup");
 }
 
 function closeEducation(){
-    elements.education.classList.remove("open-popup");
+  elements.education.classList.remove("open-popup");
+}
+
+function openSkills(){
+  elements.skills.classList.add("open-popup");
+}
+
+function closeSkills(){
+  elements.skills.classList.remove("open-popup");
 }
 
 //draggable windows

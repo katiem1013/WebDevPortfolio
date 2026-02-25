@@ -79,13 +79,16 @@ header{
     transform: translate(-50%, -50%) scale(0.1);
 
     text-align: center;
-    padding: 0 30px 30px;
     color: #333;
 
     visibility: hidden;
 
     transition: transform 0.4s, top 0.4s;
     
+}
+
+.popup-contents{
+    padding: 0 40px 0px;
 }
 
 .drag{
@@ -117,7 +120,7 @@ header{
     font-size: large;
 
     margin: auto;
-    top: 100px;
+    top: 60px;
 
     background-color: #B1B78B;
     padding: 8px;
