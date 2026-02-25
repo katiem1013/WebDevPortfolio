@@ -66,7 +66,8 @@ header{
 
 .popup{
     width: 400px;
-    
+    height: auto;
+
     background: #B1B78B;
     border:3px #58733C solid;
     border-radius: 10px;
@@ -94,6 +95,10 @@ header{
     z-index: 10;
     background-color: #58733C;
     color: #fff;
+}
+
+.dragging {
+    transition: none !important;
 }
 
 .open-popup{
