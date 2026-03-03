@@ -45,6 +45,17 @@ function closeSkills(){
 
 //draggable windows
 
+document.querySelectorAll('.popup').forEach(el => {
+  el.addEventListener('click', () => {
+        resetIndex();
+    el.style.zIndex = "1"
+  })
+})
+function resetIndex() {
+  document.querySelectorAll('.popup').forEach(el => {
+    el.style.zIndex = "auto"
+})} // brings the window that is clicked to the front
+
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
