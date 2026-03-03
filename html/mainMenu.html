@@ -33,6 +33,11 @@
                 <button type="openFile" class="app-bttn" onclick="openSkills()"></button>
                 <figcaption>Skills!</figcaption>
             </div>
+
+            <div class="img-with-text">
+                <button type="openFile" class="app-bttn" onclick="openToDo()"></button>
+                <figcaption>To Do List!</figcaption>
+            </div>
         </div>
 
         <div id="drag">
@@ -155,6 +160,22 @@
                     </ul>
 
                     <button type="button" onclick="closeSkills()">Done!</button>
+            
+                </div>
+            </div>
+
+            <div class="popup" id="toDo">
+                <div class="drag" id="dragheader">To Do List!</div>
+                <div class="popup-contents">
+                     <div class="to-do-list">
+                        <div class = "row">
+                            <input type ="text" id = "input-box" placeholder="To Do...">
+                            <button class="add-button" onclick="addTask()">Add!</button>
+                        </div>
+                        <ul id = "list-container">
+                        </ul>
+                    </div>
+                    <button type="button" onclick="closeToDo()">Done!</button>
             
                 </div>
             </div>

@@ -3,12 +3,14 @@ const elements = {
     experience: document.getElementById('experience'),
     education: document.getElementById('education'),
     skills: document.getElementById('skills'),
+    toDo: document.getElementById('toDo'),
 };
 
 dragElement(document.getElementById("about"));
 dragElement(document.getElementById("experience"));
 dragElement(document.getElementById("education"));
 dragElement(document.getElementById("skills"));
+dragElement(document.getElementById("toDo"));
 
 //popup controls 
 function openAbout(){
@@ -43,18 +45,15 @@ function closeSkills(){
   elements.skills.classList.remove("open-popup");
 }
 
-//draggable windows
+function openToDo(){
+  elements.toDo.classList.add("open-popup");
+}
 
-document.querySelectorAll('.popup').forEach(el => {
-  el.addEventListener('click', () => {
-        resetIndex();
-    el.style.zIndex = "1"
-  })
-})
-function resetIndex() {
-  document.querySelectorAll('.popup').forEach(el => {
-    el.style.zIndex = "auto"
-})} // brings the window that is clicked to the front
+function closeToDo(){
+  elements.toDo.classList.remove("open-popup");
+}
+
+//draggable windows
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -100,3 +99,68 @@ function dragElement(elmnt) {
     elmnt.classList.remove("dragging");s
   }
 }
+
+// brings clicked windows to the front
+
+document.querySelectorAll('.popup').forEach(el => {
+  el.addEventListener('click', () => {
+        resetIndex();
+    el.style.zIndex = "1"
+  })
+})
+function resetIndex() {
+  document.querySelectorAll('.popup').forEach(el => {
+    el.style.zIndex = "auto"
+})} 
+
+// to do list 
+
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
+
+function addTask(){
+    
+    if(inputBox.value === ''){
+        alert("You must write something!");
+    }
+
+    else{
+        let li = document.createElement("li");
+        li.innerHTML = inputBox.value;
+        listContainer.appendChild(li);
+        let span = document.createElement("span");
+        span.innerHTML = "\u00d7";
+        li.appendChild(span);
+    }
+
+    inputBox.value = "";
+    saveData()
+}
+
+inputBox.addEventListener("keyup", function(event) {
+  if (event.key === 13) { 
+    event.preventDefault();
+    addTask();
+  }
+}, false)
+
+listContainer.addEventListener("click", function(e){
+    if(e.target.tagName.toLowerCase() === "li"){
+        e.target.classList.toggle("checked");
+        saveData()
+    }
+    else if(e.target.tagName.toLowerCase() === "span"){
+        e.target.parentElement.remove();
+        saveData()
+    }
+},false)
+
+function saveData(){
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+
+function loadData(){
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+
+loadData()
