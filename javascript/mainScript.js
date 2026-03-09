@@ -4,6 +4,7 @@ const elements = {
     education: document.getElementById('education'),
     skills: document.getElementById('skills'),
     toDo: document.getElementById('toDo'),
+    music: document.getElementById('musicPlayer'),
     input: document.getElementById('inputBox'),
     listContainer: document.getElementById('list-container'),
 };
@@ -13,6 +14,7 @@ dragElement(document.getElementById("experience"));
 dragElement(document.getElementById("education"));
 dragElement(document.getElementById("skills"));
 dragElement(document.getElementById("toDo"));
+dragElement(document.getElementById("musicPlayer"));
 
 //popup controls 
 function openAbout(){
@@ -54,6 +56,15 @@ function openToDo(){
 function closeToDo(){
   elements.toDo.classList.remove("open-popup");
 }
+
+function openMusic(){
+  elements.music.classList.add("open-popup");
+}
+
+function closeMusic(){
+  elements.music.classList.remove("open-popup");
+}
+
 
 //draggable windows
 
@@ -143,8 +154,8 @@ function newElement() {
     saveData()
 }
 
-inputBox.addEventListener("keyup", function(event) {
-  if (event.key === "Enter") { 
+inputBox.addEventListener("keyup", function(e) {
+  if (e.key === "Enter") { 
       e.preventDefault();
       newElement();
   }

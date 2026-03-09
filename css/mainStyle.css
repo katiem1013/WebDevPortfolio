@@ -201,13 +201,13 @@ header{
 
 /* Style the input */
 input {
-    
+    font-family: mainFont;
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
-    padding: 10px;
-    font-weight: 14px;
+    font-weight: 12px;
+    font-size: 13px;
 }
 
 .row{
@@ -229,11 +229,12 @@ input {
 .addBtn {
     border: none;
     outline: none;
-    padding: 16px 50px;
+    padding: 16px 20px;
     background-color: #B1B78B;
     color: #202020;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 7px;
 }
 
 .addBtn:hover {
