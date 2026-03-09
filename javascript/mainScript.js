@@ -4,6 +4,8 @@ const elements = {
     education: document.getElementById('education'),
     skills: document.getElementById('skills'),
     toDo: document.getElementById('toDo'),
+    input: document.getElementById('inputBox'),
+    listContainer: document.getElementById('list-container'),
 };
 
 dragElement(document.getElementById("about"));
@@ -67,7 +69,10 @@ function dragElement(elmnt) {
 
   function dragMouseDown(e) {
     e = e || window.event;
-    e.preventDefault();
+    if (e.target.tagName !== 'INPUT') {
+        e.preventDefault();
+    }
+
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
@@ -79,8 +84,11 @@ function dragElement(elmnt) {
   }
 
   function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
+    e = e || window;
+    if (e.target.tagName !== 'INPUT') {
+        e.preventDefault();
+    }
+
     // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
@@ -89,6 +97,8 @@ function dragElement(elmnt) {
     // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+    
   }
 
   function closeDragElement() {
@@ -115,3 +125,50 @@ function resetIndex() {
 
 // to do list 
 
+function newElement() {
+  if(elements.input.value === ''){
+        alert("You must write something!");
+    }
+
+    else{
+        let li = document.createElement("li");
+        li.innerHTML = elements.input.value;
+        elements.listContainer.appendChild(li);
+        let span = document.createElement("span");
+        span.innerHTML = "\u00d7";
+        li.appendChild(span);
+    }
+
+    elements.input.value = "";
+    saveData()
+}
+
+inputBox.addEventListener("keyup", function(event) {
+  if (event.key === "Enter") { 
+      e.preventDefault();
+      newElement();
+  }
+}, false)
+
+elements.listContainer.addEventListener("click", function(e){
+  console.log("You clicked on:", e.target.tagName);
+  if(e.target.tagName.toLowerCase() === "li"){
+      e.target.classList.toggle("checked");
+      saveData()
+  }
+  else if(e.target.tagName.toLowerCase() === "span"){
+      e.target.parentElement.remove();
+      saveData()
+  }
+  
+},false)
+
+function saveData(){
+    localStorage.setItem("data", elements.listContainer.innerHTML);
+}
+
+function loadData(){
+    elements.listContainer.innerHTML = localStorage.getItem("data");
+}
+
+loadData()

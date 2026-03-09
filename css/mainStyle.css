@@ -150,4 +150,92 @@ header{
     text-align: left;
 }
 
+/* To do list */
+#list-container li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
 
+    top: 25px;
+}
+
+#list-container li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    background-image: url("../assets/mainMenu/Unchecked.png");
+    background-size: cover;
+    background-position: center;
+    top:6px;
+    left: 8px;
+}
+
+#list-container li.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+
+#list-container li.checked::before{
+    background-image: url("../assets/mainMenu/Checked.png");
+}
+
+#list-container li span{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #555;
+    text-align: center;
+    border-radius: 7px;
+}
+
+#list-container li span:hover{
+    background: #e2d1bc;
+}
+
+/* Style the input */
+input {
+    
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+
+    background-color: #dee4bf;
+    border:3px #58733C solid;
+    border-radius: 10px;
+    position: relative;
+
+    top: 25px;
+
+    padding-left: 20px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background-color: #B1B78B;
+    color: #202020;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.addBtn:hover {
+  background-color: #9ca272;
+}

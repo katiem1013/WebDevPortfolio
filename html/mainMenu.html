@@ -167,12 +167,16 @@
             <div class="popup" id="toDo">
                 <div class="drag" id="dragheader">To Do List!</div>
                 <div class="popup-contents">
-                    
+                    <div class="row">
+                        <input type="text" id="inputBox" placeholder="To do..." tag="INPUT">
+                        <span onclick="newElement()" class="addBtn">Add</span>
+                    </div>
+                    <ul id="list-container">
+                    </ul>
                     <button type="button" onclick="closeToDo()">Done!</button>
             
                 </div>
             </div>
-
         </div>
   
         <script src = "../javascript/mainScript.js"></script>
