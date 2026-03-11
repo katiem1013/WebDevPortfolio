@@ -17,53 +17,23 @@ dragElement(document.getElementById("toDo"));
 dragElement(document.getElementById("musicPlayer"));
 
 //popup controls 
-function openAbout(){
-  elements.about.classList.add("open-popup");
-}
+function openAbout(){elements.about.classList.add("open-popup");}
+function closeAbout(){elements.about.classList.remove("open-popup");}
 
-function closeAbout(){
-  elements.about.classList.remove("open-popup");
-}
+function openExperience(){elements.experience.classList.add("open-popup");}
+function closeExperience(){elements.experience.classList.remove("open-popup");}
 
-function openExperience(){
-  elements.experience.classList.add("open-popup");
-}
+function openEducation(){elements.education.classList.add("open-popup");}
+function closeEducation(){elements.education.classList.remove("open-popup");}
 
-function closeExperience(){
-  elements.experience.classList.remove("open-popup");
-}
+function openSkills(){elements.skills.classList.add("open-popup");}
+function closeSkills(){elements.skills.classList.remove("open-popup");}
 
-function openEducation(){
-  elements.education.classList.add("open-popup");
-}
+function openToDo(){elements.toDo.classList.add("open-popup");}
+function closeToDo(){elements.toDo.classList.remove("open-popup");}
 
-function closeEducation(){
-  elements.education.classList.remove("open-popup");
-}
-
-function openSkills(){
-  elements.skills.classList.add("open-popup");
-}
-
-function closeSkills(){
-  elements.skills.classList.remove("open-popup");
-}
-
-function openToDo(){
-  elements.toDo.classList.add("open-popup");
-}
-
-function closeToDo(){
-  elements.toDo.classList.remove("open-popup");
-}
-
-function openMusic(){
-  elements.music.classList.add("open-popup");
-}
-
-function closeMusic(){
-  elements.music.classList.remove("open-popup");
-}
+function openMusic(){elements.music.classList.add("open-popup");}
+function closeMusic(){elements.music.classList.remove("open-popup");}
 
 
 //draggable windows
@@ -105,6 +75,7 @@ function dragElement(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
+
     // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
