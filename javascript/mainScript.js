@@ -23,51 +23,108 @@ dragElement(document.getElementById("skills"));
 dragElement(document.getElementById("toDo"));
 dragElement(document.getElementById("musicPlayer"));
 
+function getTopElementByClass(className) {
+  const popups = document.querySelectorAll(`.${className}`);
+    let highest = null;
+    let maxZ = -1;
+
+    popups.forEach(el => {
+        // Use parseInt to handle "auto" (becomes NaN) and provide a fallback of 0
+        const z = parseInt(window.getComputedStyle(el).zIndex, 10) || 0;
+        if (z > maxZ) {
+            maxZ = z;
+            highest = el;
+        }
+    });
+    return highest;
+}
+
+
 const iconsList=[];
+let highestZ = 10;
 
 function openPopups(appId, iconImg){
-  document.getElementById(appId).classList.add("open-popup")
+  const popup = document.getElementById(appId);
+  popup.classList.add("open-popup");
+  resetIndex();
+  popup.style.zIndex = "1";
+
 
   if(!document.getElementById('task-'+appId)){
     const newIcon = document.createElement('button');
     newIcon.className = 'icon active-app';
 
-    newFocus();
-    iconsList.push(newIcon);
-
-    newIcon.classList.add('is-focused');
-    
-  
     newIcon.id = 'task-'+appId;
+   
 
     const appImg = document.createElement('img')
     appImg.src = iconImg;
     appImg.width=24;
 
     newIcon.appendChild(appImg);
-   
-    newIcon.onclick = function(){
-    };
-
     elements.taskbar.appendChild(newIcon);
+
+    iconsList.push(newIcon); 
+
+    updateFocus();
+    
+
+    newIcon.onclick = function() {
+    highestZ++;
+    popup.style.zIndex = highestZ;
+
+    popup.classList.add("open-popup");
+    updateFocus();
+  };
   }
+
+  
 }
 
 function newFocus()
 {
-  console.log(iconsList);
-  for(const element of iconsList){
-    element.classList.remove('is-focused');
-  }
+  const allIcons = document.querySelectorAll('.icon');
+  allIcons.forEach(icon => icon.classList.remove('is-focused'));
+}
+
+function updateFocus()
+{
+
+  const topRef = getTopElementByClass('popup');
+    
+    // Clear all existing focus first
+    newFocus();
+
+    if (topRef && topRef.id) {
+        const iconId = 'task-' + topRef.id;
+        const iconElement = document.getElementById(iconId); 
+        
+        if (iconElement) {
+            iconElement.classList.add('is-focused');
+        } else {
+            console.warn(`Focus failed: No icon found with ID ${iconId}`);
+        }
+    }
 }
 
 function closePopups(appId){
-  document.getElementById(appId).classList.remove("open-popup");
+   const popup = document.getElementById(appId);
+  popup.classList.remove("open-popup");
+  
+  // Reset its z-index so it doesn't "win" while hidden
+  popup.style.zIndex = "0";
 
-  const icon = document.getElementById('task-'+appId);
-  if(icon){
-      icon.remove();
-      newFocus(); // This doesnt work because i need to find a way to update whatever the next highest index is - fixing the clicking of icons should hopefully fix this too. 
+  const icon = document.getElementById('task-' + appId);
+  if (icon) {
+    // Remove it from your tracking array
+    const index = iconsList.indexOf(icon);
+    if (index > -1) iconsList.splice(index, 1);
+    
+    icon.remove();
+    
+    // Clear all focus and recalculate who is the new "Top"
+    newFocus();
+    updateFocus(); 
   }
 }
 
@@ -125,11 +182,12 @@ function dragElement(elmnt) {
 // brings clicked windows to the front
 
 document.querySelectorAll('.popup').forEach(el => {
-  el.addEventListener('click', () => {
-        resetIndex();
-    el.style.zIndex = "1"
-  })
-})
+  el.addEventListener('mousedown', () => { 
+    highestZ++; 
+    el.style.zIndex = highestZ;
+    updateFocus();
+  });
+});
 
 function resetIndex() {
   document.querySelectorAll('.popup').forEach(el => {
@@ -204,3 +262,7 @@ function setTime(){
 };
 
 setInterval(setTime, 1000);
+
+
+
+
