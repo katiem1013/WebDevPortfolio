@@ -1,5 +1,3 @@
-
-
 const elements = {
   time: document.getElementById('currentTime'),
   date: document.getElementById('currentDate'),

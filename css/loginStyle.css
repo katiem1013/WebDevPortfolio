@@ -10,6 +10,12 @@
     src: url("../assets/universal/Keep\ Cheese.ttf");
 }
 
+html, body {
+    margin: 0; 
+    height: 100%; 
+    overflow: hidden
+}
+
 .titlebar {
     height: 40px;
     width: 100%;

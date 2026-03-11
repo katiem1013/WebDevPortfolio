@@ -4,6 +4,11 @@
     src: url("../assets/universal/Keep\ Cheese.ttf");
 }
 
+html, body {
+    height: 100%; 
+    overflow: hidden
+}
+
 .titlebar {
     height: 40px;
     width: 100%;
@@ -261,4 +266,39 @@ input {
   right: 30px;
   font-size: 15px;
   color: #333;
+}
+
+.icon.active-app{
+  background: #b1b78bc5; 
+  border: none;
+ 
+  margin: 0 6px;
+  border-radius: 4px; 
+  cursor: pointer;
+  transition: all 0.2s;
+  align-items: center;
+}
+
+
+.icon.active-app.is-focused {
+  background: #b1b78bc5; 
+  border: none;
+  border-bottom: 3px solid #CC9922; 
+ 
+  margin: 0 6px;      
+  border-radius: 4px;    
+  cursor: pointer;
+  transition: all 0.2s;
+  align-items: center;
+}
+
+
+.icon.active-app:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateY(-0px); 
+  transform: scale(110%);
+}
+
+.icon.active-app img {
+    width: 25px;
 }

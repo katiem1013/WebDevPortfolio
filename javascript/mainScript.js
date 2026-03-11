@@ -1,12 +1,19 @@
 const elements = {
-    about: document.getElementById('about'),
-    experience: document.getElementById('experience'),
-    education: document.getElementById('education'),
-    skills: document.getElementById('skills'),
-    toDo: document.getElementById('toDo'),
-    music: document.getElementById('musicPlayer'),
-    input: document.getElementById('inputBox'),
-    listContainer: document.getElementById('list-container'),
+  // popups
+  about: document.getElementById('about'),
+  experience: document.getElementById('experience'),
+  education: document.getElementById('education'),
+  skills: document.getElementById('skills'),
+  toDo: document.getElementById('toDo'),
+  music: document.getElementById('musicPlayer'),
+
+  // to do list
+  input: document.getElementById('inputBox'),
+  listContainer: document.getElementById('list-container'),
+
+  // taskbar 
+  taskbar: document.getElementById('taskbar-icons'),
+  time: document.getElementById('currentTime'),
 };
 
 dragElement(document.getElementById("about"));
@@ -16,35 +23,61 @@ dragElement(document.getElementById("skills"));
 dragElement(document.getElementById("toDo"));
 dragElement(document.getElementById("musicPlayer"));
 
-//popup controls 
-function openAbout(){elements.about.classList.add("open-popup");}
-function closeAbout(){elements.about.classList.remove("open-popup");}
+const iconsList=[];
 
-function openExperience(){elements.experience.classList.add("open-popup");}
-function closeExperience(){elements.experience.classList.remove("open-popup");}
+function openPopups(appId, iconImg){
+  document.getElementById(appId).classList.add("open-popup")
 
-function openEducation(){elements.education.classList.add("open-popup");}
-function closeEducation(){elements.education.classList.remove("open-popup");}
+  if(!document.getElementById('task-'+appId)){
+    const newIcon = document.createElement('button');
+    newIcon.className = 'icon active-app';
 
-function openSkills(){elements.skills.classList.add("open-popup");}
-function closeSkills(){elements.skills.classList.remove("open-popup");}
+    newFocus();
+    iconsList.push(newIcon);
 
-function openToDo(){elements.toDo.classList.add("open-popup");}
-function closeToDo(){elements.toDo.classList.remove("open-popup");}
+    newIcon.classList.add('is-focused');
+    
+  
+    newIcon.id = 'task-'+appId;
 
-function openMusic(){elements.music.classList.add("open-popup");}
-function closeMusic(){elements.music.classList.remove("open-popup");}
+    const appImg = document.createElement('img')
+    appImg.src = iconImg;
+    appImg.width=24;
 
+    newIcon.appendChild(appImg);
+   
+    newIcon.onclick = function(){
+    };
+
+    elements.taskbar.appendChild(newIcon);
+  }
+}
+
+function newFocus()
+{
+  console.log(iconsList);
+  for(const element of iconsList){
+    element.classList.remove('is-focused');
+  }
+}
+
+function closePopups(appId){
+  document.getElementById(appId).classList.remove("open-popup");
+
+  const icon = document.getElementById('task-'+appId);
+  if(icon){
+      icon.remove();
+      newFocus(); // This doesnt work because i need to find a way to update whatever the next highest index is - fixing the clicking of icons should hopefully fix this too. 
+  }
+}
 
 //draggable windows
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
   } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
     elmnt.onmousedown = dragMouseDown;
   }
 
@@ -54,11 +87,11 @@ function dragElement(elmnt) {
         e.preventDefault();
     }
 
-    // get the mouse cursor position at startup:
+    // get cursor pos
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
+    
     document.onmousemove = elementDrag;
 
     elmnt.classList.add("dragging");
@@ -70,13 +103,11 @@ function dragElement(elmnt) {
         e.preventDefault();
     }
 
-    // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
 
-    // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
 
@@ -84,11 +115,10 @@ function dragElement(elmnt) {
   }
 
   function closeDragElement() {
-    // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
 
-    elmnt.classList.remove("dragging");s
+    elmnt.classList.remove("dragging");
   }
 }
 
@@ -100,6 +130,7 @@ document.querySelectorAll('.popup').forEach(el => {
     el.style.zIndex = "1"
   })
 })
+
 function resetIndex() {
   document.querySelectorAll('.popup').forEach(el => {
     el.style.zIndex = "auto"
@@ -154,3 +185,22 @@ function loadData(){
 }
 
 loadData()
+
+
+// taskbar 
+
+function setTime(){
+    const d = new Date();
+    const formatter = new Intl.DateTimeFormat([], {
+        hour: '2-digit', 
+        minute: '2-digit',
+    });
+
+    const parts = formatter.formatToParts(d);
+
+    elements.time.innerHTML = parts.map(({type, value}) => {
+        return value;
+    }).join('');
+};
+
+setInterval(setTime, 1000);

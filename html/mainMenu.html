@@ -15,32 +15,32 @@
 
         <div class="app-containers">
             <div class="img-with-text">
-                <button type="openFile" class="app-bttn" onclick="openAbout()"></button>
+                <button type="openFile" class="app-bttn" onclick="openPopups('about', '../assets/mainMenu/fileImg.png')"></button>
                 <figcaption>About me!</figcaption>
             </div>
 
             <div class="img-with-text">
-                <button type="openFile" class="app-bttn" onclick="openExperience()"></button>
+                <button type="openFile" class="app-bttn" onclick="openPopups('experience', '../assets/mainMenu/fileImg.png')"></button>
                 <figcaption>Experience!</figcaption>
             </div>
 
             <div class="img-with-text">
-                <button type="openFile" class="app-bttn" onclick="openEducation()"></button>
+                <button type="openFile" class="app-bttn" onclick="openPopups('education', '../assets/mainMenu/fileImg.png')"></button>
                 <figcaption>Education!</figcaption>
             </div>
 
             <div class="img-with-text">
-                <button type="openFile" class="app-bttn" onclick="openSkills()"></button>
+                <button type="openFile" class="app-bttn" onclick="openPopups('skills', '../assets/mainMenu/fileImg.png')"></button>
                 <figcaption>Skills!</figcaption>
             </div>
 
             <div class="img-with-text">
-                <button type="openFile" class="app-bttn" onclick="openToDo()"></button>
+                <button type="openFile" class="app-bttn" onclick="openPopups('toDo', '../assets/mainMenu/fileImg.png')"></button>
                 <figcaption>To Do List!</figcaption>
             </div>
 
             <div class="img-with-text">
-                <button type="openFile" class="app-bttn" onclick="openMusic()"></button>
+                <button type="openFile" class="app-bttn" onclick="openPopups('musicPlayer', '../assets/mainMenu/fileImg.png')"></button>
                 <figcaption>Music Player!</figcaption>
             </div>
         </div>
@@ -53,7 +53,7 @@
                     <p>I am a Programmer that recently graduated in Games Design course at Brunel University. I love creating games, along with other hobbies such as sewing, drawing, and baking. 
                     Some of my favourite games are: Minecraft, Overwatch 2, Cities: Skyline, A Way Out, The Last of Us, The Forest and Left 4 Dead 2.</p>
 
-                    <button type="button" onclick="closeAbout()">Done!</button>
+                    <button type="button" onclick="closePopups('about')">Done!</button>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
                         enjoyable final product.</li>
                     </ul>
 
-                    <button type="button" onclick="closeExperience()">Done!</button>
+                    <button type="button" onclick="closePopups('experience')">Done!</button>
                 </div>
             </div>
 
@@ -124,7 +124,7 @@
                         (4/5), and Product Design B-Tech (D1).</p >
                     </ul>
                     
-                    <button type="button" onclick="closeEducation()">Done!</button>
+                    <button type="button" onclick="closePopups('education')">Done!</button>
             
                 </div>
             </div>
@@ -164,7 +164,7 @@
                         <li>Aesprite</li>
                     </ul>
 
-                    <button type="button" onclick="closeSkills()">Done!</button>
+                    <button type="button" onclick="cclosePopups('skills')">Done!</button>
             
                 </div>
             </div>
@@ -178,7 +178,7 @@
                     </div>
                     <ul id="list-container">
                     </ul>
-                    <button type="button" onclick="closeToDo()">Done!</button>
+                    <button type="button" onclick="closePopups('toDo')">Done!</button>
                 </div>
             </div>
 
@@ -188,14 +188,19 @@
                    
 
                     
-                    <button type="button" onclick="closeMusic()">Done!</button>
+                    <button type="button" onclick="closePopups('musicPlayer')">Done!</button>
                 </div>
             </div>
         </div>
   
        <div class="taskbar">
+
+            <div class="taskbar-center" id="taskbar-icons">
+            
+            </div>
+
             <div class="taskbar-right">
-                <div id="clock">12:00 PM</div>
+                <div id="currentTime">00:00</div>
             </div>
         </div>
 
