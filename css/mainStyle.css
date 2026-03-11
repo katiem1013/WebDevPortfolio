@@ -98,12 +98,22 @@ header{
 }
 
 .drag{
-    padding: 10px;
+    padding-top: 10px;
+    position: relative;
+    text-align: center;
 
     cursor: move;
     z-index: 10;
     background-color: #58733C;
     color: #fff;
+    
+}
+
+.drag button{
+    position: absolute;      
+    transform: translateY(-50%); 
+  
+  cursor: pointer;     
 }
 
 .dragging {
@@ -126,17 +136,13 @@ header{
     font-size: large;
 
     margin: auto;
-    top: 60px;
+    left:150px;
 
     background-color: #B1B78B;
-    padding: 8px;
     border:3px #58733C solid;
     border-radius: 10px;
-    box-shadow: 7px 7px 0px 0px #CC9922;
 
-    cursor: pointer;
-
-    
+    cursor: pointer;    
 }
 
 .popup h3{
